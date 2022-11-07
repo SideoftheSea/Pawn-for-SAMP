@@ -1,0 +1,32 @@
+//101 Call
+CMD:101(playerid, params[])
+{
+    //101 system
+    if(isnull(params)) return SendClientMessage(playerid, COLOR_ROYALBLUE, "USAGE: 101 message and location!");
+    new sendername[MAX_PLAYER_NAME], string[128];
+    GetPlayerName(playerid, sendername, sizeof(sendername));
+    SendClientMessage(playerid, COLOR_ROYALBLUE, "*Company:Your Order Will BE DELIVERED,PLease Stay At Your Place");
+    SendClientMessage(playerid, COLOR_LIGHTSKYBLUE, "They hang up...");
+    for(new i=0;i<MAX_PLAYERS;i++) {
+        if(GetPlayerSkin(i) == 24 || GetPlayerSkin(i) ==  44 || GetPlayerSkin(i) == 57
+		{
+            SendClientMessage(i, COLOR_GREY, "-------------------------------------------------------------------------------------------------");
+            SendClientMessage(i, COLOR_ROYALBLUE, "COMPANY PERSON WILL BE AT UR PLACE");
+            SendClientMessage(i, COLOR_GREY, "101 Call");
+            format(string, sizeof(string), "NAME: %s (ID: %i)", sendername, playerid);
+            SendClientMessage(i, COLOR_GREY, string);
+            format(string, sizeof(string), "CALL INFO: %s", params);
+            SendClientMessage(i, COLOR_GREY, string);
+            SendClientMessage(i, COLOR_GREY, "Suggested action: Order Processed,Soon will be at ur place.");
+            SendClientMessage(i, COLOR_GREY, "Call code: Unknown.");
+            SendClientMessage(i, COLOR_GREY, "-------------------------------------------------------------------------------------------------");
+            SendClientMessage(i, COLOR_GOLD, "[INFO]A marker has been put on your GPS. Enter it to remove it.");
+            new Float:X, Float:Y, Float:Z;
+            GetPlayerPos(playerid, X, Y, Z);
+		    SetPlayerCheckpoint(i, X, Y, Z, 5.0);
+cratesystem = CreatePickup(1212,30,29 , type, Float:X, Float:Y, Float:Z, virtualworld = 0);
+		 }
+
+    }
+    return 1;
+}
